@@ -1,5 +1,5 @@
 #!/bin/bash
-version=$(curl https://raw.githubusercontent.com/screeps/screeps/master/package.json | tac | jq -r .version)
+version=$(curl https://raw.githubusercontent.com/screeps/screeps/master/package.json | jq -r .version)
 git clone git@github.com:DailyInnovators/docker-screeps-server.git
 pushd docker-screeps-server
 sed -i 's/^ENV SCREEPS_VERSION.*$/ENV SCREEPS_VERSION '$version'/i' Dockerfile
